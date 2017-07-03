@@ -10,30 +10,32 @@
 
   <body scroll="no" style="overflow: hidden">
     <header class="row">
-      <div class="col-2">
+      <div class="col-sm-4 col-md-2 col-xl-1">
         <%= link_to root_path, class: 'logo' do %>
           <div class="circle">
             <br />
-            You know
+            
             <br />
-            you need
+            SPLURTY
             <br />
-            to code
+            
           </div>
         <% end %>
       </div>
-      <div class="col col-sm-4 hidden-xs-down slogan">
+      <div class="hidden-sm-down col-md-3 col-lg-5 col-xl-6  slogan">
         Splurting out unsolicited advice since 2017.
       </div>
-      <div class="col-6 offset-1 offset-sm-0 sol-sm-5 links">
-        <!-- Button trigger modal -->
-        <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
-        &nbsp;&nbsp;&nbsp;
+        <div class="col-sm-4 col-md-3 col-lg-2 links">
+          <!-- Button trigger modal -->
+          <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
+        </div>
+        <div class="hidden-sm-down col-md-2 links">
         <%= link_to 'About', about_path %>
-      </div>
+        </div>
     </header>
 
     <!-- Modal -->
+    <%= simple_form_for Quote.new do |f| %>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -43,18 +45,18 @@
             </button>
             <h4 class="modal-title" id="myModalLabel">Contribute Your Quote</h4>
           </div>
-          <%= simple_form_for Quote.new do |f| %>
-          <div class="modal-body">
-              <%= f.input :saying, label: "Quote", placeholder: "Your mother was a hamster and your father smelt of elderberries." %>
-              <br />
-              <%= f.input :author, label: "Author", placeholder: "Taunting French Guard" %>
+          
+            <div class="modal-body">
+                <%= f.input :saying, label: "Quote", placeholder: "Your mother was a hamster and your father smelt of elderberries." %>
+                <br />
+                <%= f.input :author, label: "Author", placeholder: "Taunting French Guard" %>
+              </div>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <%= f.submit 'Create', class: 'btn btn-danger' %>
-          </div>
-          <% end %>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= f.submit 'Create', class: 'btn btn-danger' %>
+            </div>
+            <% end %>
         </div>
       </div>
     </div>
@@ -74,11 +76,11 @@
     <div class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-sm-6">
-            <%= link_to "Generate another quote", root_path, class: 'next-quote' %>
+          <div class="col-12 col-sm-10">
+            <%= link_to "Generate another quote", root_path, class: 'next-quote btn btn-outline-danger btn-block' %>
           </div>
-          <div class="col-12 col-sm-6 footer-blurb">
-            Proudly made by AJ De Groot(:
+          <div class="col-12 col-sm-2 footer-blurb">
+            By: AJ De Groot
           </div>
         </div>
       </div>
