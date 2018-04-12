@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20170629045712) do
 
   create_table "quotes", force: :cascade do |t|
     t.string   "saying",     default: "Be happy"
-    t.string   "author",     default: "Marley"
+    t.string   "author",     default: "Bob"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
